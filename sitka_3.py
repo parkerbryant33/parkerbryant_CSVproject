@@ -38,9 +38,9 @@ plt.tick_params(axis="both", labelsize=12)
 
 plt.show()
 
-fig2, a = plt.subplot(2)
+fig2, a = plt.subplots(2)
 
-a[0].plt(dates, highs, c="red")
-a[1].plt(dates, lows, c="blue")
+a[0].plot(dates, highs, c="red")
+a[1].plot(dates, lows, c="blue")
 
 plt.show()

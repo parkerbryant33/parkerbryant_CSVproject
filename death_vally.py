@@ -22,7 +22,7 @@ for row in csv_file:
     except ValueError:
         print(f"missing data for {converted_date}")
     else:
-        highs.append(highs)
+        highs.append(high)
         lows.append(low)
         dates.append(converted_date)
 # print(highs)
@@ -43,10 +43,11 @@ plt.ylabel("Temperature (F)", fontsize=12)
 plt.tick_params(axis="both", labelsize=12)
 
 plt.show()
-
+"""
 fig2, a = plt.subplot(2)
 
 a[0].plt(dates, highs, c="red")
 a[1].plt(dates, lows, c="blue")
 
 plt.show()
+"""
