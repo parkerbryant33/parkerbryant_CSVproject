@@ -48,9 +48,9 @@ header_row = next(csv_file)
 for index, column_header in enumerate(header_row):
     print("Index:", index, "Column Name:", column_header)
 
-highs = []
-dates = []
-lows = []
+highs1 = []
+dates1 = []
+lows1 = []
 for row in csv_file:
     try:
         high = int(row[4])
@@ -59,20 +59,20 @@ for row in csv_file:
     except ValueError:
         print(f"missing data for {converted_date}")
     else:
-        highs.append(high)
-        lows.append(low)
-        dates.append(converted_date)
+        highs1.append(high)
+        lows1.append(low)
+        dates1.append(converted_date)
 # print(highs)
 
 fig = plt.figure()
 
-plt.plot(dates, highs, c="red")
-plt.plot(dates, lows, c="blue")
+plt.plot(dates1, highs1, c="red")
+plt.plot(dates1, lows1, c="blue")
 
 
 fig.autofmt_xdate()
 
-plt.fill_between(dates, highs, lows, facecolor="blue", alpha=0.1)
+plt.fill_between(dates1, highs1, lows1, facecolor="blue", alpha=0.1)
 
 plt.title("Daily high and low temperatures - 2018", fontsize=16)
 plt.xlabel("", fontsize=12)
@@ -83,11 +83,12 @@ plt.show()
 
 
 fig2, a = plt.subplots(2)
-
+a[0].plot(plt.fill_between(dates, highs, lows, facecolor="blue", alpha=0.1))
 a[0].plot(dates, highs, c="red")
 a[0].plot(dates, lows, c="blue")
 
-a[1].plot(dates, highs, c="red")
-a[1].plot(dates, lows, c="blue")
 
+a[1].plot(dates, highs1, c="red")
+a[1].plot(dates, lows1, c="blue")
+plt.fill_between(dates1, highs1, lows1, facecolor="blue", alpha=0.1)
 plt.show()
